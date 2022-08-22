@@ -1,4 +1,3 @@
-import history from 'util/history';
 import { Controller, useForm } from 'react-hook-form';
 import Select from 'react-select';
 import { Employee } from 'types/employee';
@@ -7,10 +6,12 @@ import { useEffect, useState } from 'react';
 import { requestBackend } from 'util/requests';
 import { AxiosRequestConfig } from 'axios';
 import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
 
 import './styles.css';
 
 const Form = () => {
+  const history = useHistory();
   const [selectDepartments, setSelectDepartments] = useState<Department[]>([]);
 
   useEffect(() => {
